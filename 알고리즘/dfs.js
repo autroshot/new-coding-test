@@ -2,9 +2,7 @@ function dfs(graph, startNode) {
     const result = [];
 
     const visited = new Set();
-    let needVisit = [];
-
-    needVisit.push(startNode);
+    let needVisit = [startNode];
 
     while (needVisit.length > 0) {
         const node = needVisit.shift();
