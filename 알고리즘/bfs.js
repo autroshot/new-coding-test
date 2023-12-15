@@ -28,10 +28,20 @@ const graph1 = {
     I: ['C', 'J'],
     J: ['I'],
 };
-console.log(bfs(graph1, 'A')); // ['A', 'B', 'C', 'D', 'G', 'H', 'I', 'E', 'F', 'J']
+console.log(bfs(graph1, 'A'));
+/*
+[
+  'A', 'B', 'C', 'D',
+  'G', 'H', 'I', 'E',
+  'F', 'J'
+]
+*/
 
 const graph2 = [[1, 2, 4], [0, 5], [0, 5], [4], [0, 3], [1, 2]];
-console.log(bfs(graph2, 0)); // [0, 1, 2, 4, 5, 3]
+console.log(bfs(graph2, 0));
+/*
+[ 0, 1, 2, 4, 5, 3 ]
+*/
 
 const graph3 = [
     [],
@@ -44,7 +54,13 @@ const graph3 = [
     [2, 6, 8],
     [1, 7],
 ];
-console.log(bfs(graph3, 1)); // [1, 2, 3, 8, 7, 4, 5, 6]
+console.log(bfs(graph3, 1));
+/*
+[
+  1, 2, 3, 8,
+  7, 4, 5, 6
+]
+*/
 
 /*
 참고

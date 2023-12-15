@@ -31,9 +31,19 @@ const graph1 = {
     J: ['I'],
 };
 console.log(dfs(graph1, 'A'));
+/*
+[
+  'A', 'B', 'D', 'E',
+  'F', 'C', 'G', 'H',
+  'I', 'J'
+]
+*/
 
 const graph2 = [[1, 2, 4], [0, 5], [0, 5], [4], [0, 3], [1, 2]];
 console.log(dfs(graph2, 0));
+/*
+[ 0, 1, 5, 2, 4, 3 ]
+*/
 
 const graph3 = [
     [],
@@ -47,6 +57,12 @@ const graph3 = [
     [1, 7],
 ];
 console.log(dfs(graph3, 1));
+/*
+[
+  1, 2, 7, 6,
+  8, 3, 4, 5
+]
+*/
 
 /*
 참고
