@@ -1,27 +1,27 @@
 실행 명령어는 다음과 같다.
 
 ```bash
-npx ts-node .\07-step\3-1193.ts
+node 3-1.js
 ```
 
-백준에서는 `require`를 사용하는 CommonJS만 지원한다.
+다음은 입력을 받는 예시이다.
 
-```ts
+```js
 const readline = require('node:readline');
 
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+    input: process.stdin,
+    output: process.stdout,
 });
 
-let inputs: string[] = [];
+let inputs = [];
 rl.on('line', (line) => {
-  inputs = line.split(' ');
+    inputs = line.split(' ');
 
-  rl.close();
+    rl.close();
 }).on('close', () => {
-  console.log(inputs.join(' '));
+    console.log(inputs.join(' '));
 
-  process.exit();
+    process.exit();
 });
 ```
