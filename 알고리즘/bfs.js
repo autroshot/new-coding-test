@@ -5,12 +5,13 @@ function bfs(graph, startNode) {
     let needVisit = [startNode];
 
     while (needVisit.length > 0) {
-        const node = needVisit.shift();
-        if (!visited.has(node)) {
-            visited.add(node);
-            needVisit = [...needVisit, ...graph[node]];
-            result.push(node);
-        }
+        const currentNode = needVisit.shift();
+
+        if (visited.has(currentNode)) continue;
+        visited.add(currentNode);
+        needVisit = [...needVisit, ...graph[currentNode]];
+
+        result.push(currentNode);
     }
 
     return result;
