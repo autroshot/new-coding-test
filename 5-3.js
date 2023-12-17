@@ -14,19 +14,46 @@ rl.on('line', (line) => {
         lineNumber = lineNumber + 1;
         return;
     }
-    if (lineNumber <= N) {
-        const row = line.split('').map(Number);
-        graph.push(row);
-        lineNumber = lineNumber + 1;
+    const row = line.split('').map(Number);
+    graph.push(row);
+    lineNumber = lineNumber + 1;
+
+    if (lineNumber === N + 2) {
+        rl.close();
         return;
     }
-
-    rl.close();
 }).on('close', () => {
-    console.log(graph);
+    let count = 0;
+    const MOVES = [
+        [-1, 0],
+        [0, 1],
+        [1, 0],
+        [0, -1],
+    ];
+
+    for (let x = 0; x < N; x++) {
+        for (let y = 0; y < M; y++) {
+            const result = dfs(x, y);
+            if (result) {
+                count = count + 1;
+            }
+        }
+    }
+
+    console.log(count);
 
     process.exit();
+
+    function dfs(x, y) {
+        if (x <= -1 || x >= N || y <= -1 || y >= M) return false;
+        if (graph[x][y] === 1) return false;
+        graph[x][y] = 1;
+
+        MOVES.forEach(([dx, dy]) => dfs(x + dx, y + dy));
+        return true;
+    }
 });
+
 /*
 # 음료수 얼려 먹기
 - 입력
@@ -53,6 +80,14 @@ M: 가로 길이
 00011
 11111
 00000
+- 출력
+3
+
+- 입력
+3 3
+001
+010
+101
 - 출력
 3
 */
